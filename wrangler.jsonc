@@ -6,7 +6,7 @@
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "real-estate-next",
 	"main": ".open-next/worker.js",
-	"compatibility_date": "2025-03-01",
+	"compatibility_date": "2025-10-11",
 	"compatibility_flags": [
 		"nodejs_compat",
 		"global_fetch_strictly_public"
@@ -17,7 +17,7 @@
 	},
 	"observability": {
 		"enabled": true
-	}
+	},
 	/**
 	 * Smart Placement
 	 * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
@@ -48,4 +48,14 @@
 	 * https://developers.cloudflare.com/workers/wrangler/configuration/#service-bindings
 	 */
 	// "services": [{ "binding": "MY_SERVICE", "service": "my-service" }]
+
+
+	// binding = "DB" # i.e. available in your Worker on env.DB
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "real-estate",
+			"database_id": "62067582-4bb8-4fad-b3db-53f9fe343333"
+		}
+	]
 }
