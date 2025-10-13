@@ -10,9 +10,9 @@ created_at INTEGER DEFAULT (strftime('%s','now'))
 
 
 -- Properties
+-- slug TEXT UNIQUE NOT NULL,
 CREATE TABLE IF NOT EXISTS properties (
 id TEXT PRIMARY KEY,
--- slug TEXT UNIQUE NOT NULL,
 name TEXT NOT NULL,
 builder TEXT,
 price INTEGER NOT NULL,
