@@ -18,8 +18,14 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../auth-provider";
 import { LoginResponseType } from "../types/LoginResponse";
 import { useRouter } from "next/navigation";
+import { Dictionary } from "../types/DictionaryType";
+import Link from "next/link";
 
-export function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
+interface SignupFormProps extends React.ComponentProps<typeof Card> {
+  labels: Dictionary;
+}
+
+export function SignupForm({ labels, ...props }: SignupFormProps) {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -55,20 +61,20 @@ export function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
   return (
     <Card {...props} className="w-full max-w-sm border-1 shadow-md/30 p-4">
       <CardHeader>
-        <CardTitle>Create an account</CardTitle>
+        <CardTitle>{labels.auth.signupTitle}</CardTitle>
         <CardDescription>
-          Enter your information below to create your account
+          {labels.auth.signupTDescription}
         </CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={submit}>
           <FieldGroup>
             <Field>
-              <FieldLabel htmlFor="name">Full Name</FieldLabel>
+              <FieldLabel htmlFor="name">{labels.auth.name}</FieldLabel>
               <Input id="name" type="text" value={name} onChange={e => setName(e.target.value)} placeholder="John Doe" required />
             </Field>
             <Field>
-              <FieldLabel htmlFor="email">Email</FieldLabel>
+              <FieldLabel htmlFor="email">{labels.auth.email}</FieldLabel>
               <Input
                 id="email"
                 type="email"
@@ -83,7 +89,7 @@ export function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
               </FieldDescription> */}
             </Field>
             <Field>
-              <FieldLabel htmlFor="password">Password</FieldLabel>
+              <FieldLabel htmlFor="password">{labels.auth.password}</FieldLabel>
               <Input 
                 id="password" 
                 type="password" 
@@ -103,12 +109,12 @@ export function SignupForm({ ...props }: React.ComponentProps<typeof Card>) {
             </Field> */}
             <FieldGroup>
               <Field>
-                <Button type="submit" className="bg-black text-white">Create Account</Button>
+                <Button type="submit" className="bg-black text-white">{labels.button.signup}</Button>
                 {/* <Button variant="outline" type="button">
                   Sign up with Google
                 </Button> */}
                 <FieldDescription className="px-6 text-center">
-                  Already have an account? <a href="/login">Sign in</a>
+                  Already have an account? <Link href="/login">{labels.button.login}</Link>
                 </FieldDescription>
               </Field>
             </FieldGroup>

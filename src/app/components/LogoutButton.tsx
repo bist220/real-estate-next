@@ -7,7 +7,7 @@ import { AuthContext } from "../auth-provider";
 import { isNullOrEmptyObject } from "../lib/utils";
 // import { UserResponse } from "../types/LoginResponse";
 
-export default function LogoutButton() {
+export default function LogoutButton({name}: {name: string}) {
     const { user, setUser, isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
 
     function logoutContext() {
@@ -31,7 +31,7 @@ export default function LogoutButton() {
                 {/* <form>
                     <button type="submit" onClick={() => { logoutContext() }}>Logout</button>
                 </form> */}
-                <a onClick={() => { logoutContext() }}>Logout</a>
+                <a onClick={() => { logoutContext() }}>{name}</a>
             </Button>
         )
     }

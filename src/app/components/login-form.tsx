@@ -20,11 +20,18 @@ import { useContext, useState } from "react"
 import { LoginResponseType } from "../types/LoginResponse"
 import { AuthContext } from "../auth-provider"
 import { useRouter } from "next/navigation"
+import { Dictionary } from "../types/DictionaryType"
+import Link from "next/link"
+
+interface LoginFormProps extends React.ComponentProps<"div"> {
+  labels: Dictionary;
+}
 
 export function LoginForm({
+  labels,
   className,
   ...props
-}: React.ComponentProps<"div">) {
+}: LoginFormProps) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const {setUser, setIsAuthenticated } = useContext(AuthContext);
@@ -63,16 +70,16 @@ export function LoginForm({
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card className="w-full max-w-sm border-1 shadow-md/30 p-4">
         <CardHeader>
-          <CardTitle>Login to your account</CardTitle>
+          <CardTitle>{labels.auth.loginTitle}</CardTitle>
           <CardDescription>
-            Enter your email below to login to your account
+            {labels.auth.loginDescription}
           </CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={submit}>
             <FieldGroup>
               <Field>
-                <FieldLabel htmlFor="email">Email</FieldLabel>
+                <FieldLabel htmlFor="email">{labels.auth.email}</FieldLabel>
                 <Input
                   id="email"
                   type="email"
@@ -84,7 +91,7 @@ export function LoginForm({
               </Field>
               <Field>
                 <div className="flex items-center">
-                  <FieldLabel htmlFor="password">Password</FieldLabel>
+                  <FieldLabel htmlFor="password">{labels.auth.password}</FieldLabel>
                   <a
                     href="#"
                     className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
@@ -100,12 +107,12 @@ export function LoginForm({
                   required />
               </Field>
               <Field>
-                <Button type="submit" className="bg-black text-white">Login</Button>
+                <Button type="submit" className="bg-black text-white">{labels.button.login}</Button>
                 {/* <Button variant="outline" type="button">
                   Login with Google
                 </Button> */}
                 <FieldDescription className="text-center">
-                  Don&apos;t have an account? <a href="/register">Sign up</a>
+                  Don&apos;t have an account? <Link href="/register">{labels.button.signup}</Link>
                 </FieldDescription>
               </Field>
             </FieldGroup>

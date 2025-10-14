@@ -1,0 +1,34 @@
+{
+    "$schema": "./dictionary.json",
+    "app": "RealEstate",
+    "homePage": {
+        "title": "संपत्त्या"
+    },
+    "auth": {
+        "email": "ईमेल",
+        "name": "नाव",
+        "loginTitle": "तुमच्या खात्यात लॉगिन करा",
+        "loginDescription": "तुमच्या खात्यात लॉगिन करण्यासाठी खाली तुमचा ईमेल प्रविष्ट करा",
+        "signupTitle": "खाते तयार करा",
+        "signupTDescription": "तुमचे खाते तयार करण्यासाठी खाली माहिती प्रविष्ट करा",
+        "password": "पासवर्ड"
+    },
+    "button": {
+        "createProperty": "संपत्ती जोडा",
+        "login": "लॉग इन करा",
+        "logout": "लॉग आउट",
+        "signup": "खाते तयार करा",
+        "back": "मागे",
+        "edit": "बदल करा"
+    },
+    "property": {
+        "name": "नाव",
+        "builder": "बिल्डर",
+        "description": "वर्णन",
+        "location": "ठिकाण",
+        "price": "किमत",
+        "images": "प्रतिमा",
+        "created_at": "यादीवर आहे",
+        "updated_at": "शेवटचे अद्यतन"
+    }
+}

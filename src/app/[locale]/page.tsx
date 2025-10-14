@@ -1,9 +1,11 @@
 import Link from 'next/link';
-import PropertyCard from './components/PropertyCard';
-import { PropertyList } from './types/ResponseType';
-import {Button} from '@/components/ui/button'
+import PropertyCard from '../components/PropertyCard';
+import { PropertyList } from '../types/ResponseType';
+import { Button } from '@/components/ui/button'
 // import { getBaseUrl } from './lib/utils';
 import { headers } from 'next/headers';
+import { getDictionary } from '../lib/dictionaries';
+import { LanguageType } from '../types/LocaleType';
 
 async function getBaseUrl() {
   // Get protocol (http or https) and host from request headers
@@ -28,17 +30,29 @@ async function getProperties() {
 }
 
 
-export default async function HomePage() {
+export default async function HomePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
   console.log(`===>>> HomePage`)
+  const { locale } = await params;
+  console.log(`===>>> HomePage :: locale :: ${JSON.stringify(locale)}`)
   const props = await getProperties();
   const data = props.data
+
+  // const intlLocale = new Intl.Locale(locale);
+  // const language = intlLocale.language;
+
+  const dict = await getDictionary(locale);
+
   // const props = {}
   return (
     <div className="max-w-6xl mx-auto p-6">
       <header className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold">Properties</h1>
+        <h1 className="text-3xl font-bold">{dict.homePage.title}</h1>
         <Button variant="outline" asChild>
-          <Link href="/property/new">List Property</Link>
+          <Link href="/property/new">{dict.button.createProperty}</Link>
         </Button>
       </header>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

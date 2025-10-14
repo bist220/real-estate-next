@@ -1,0 +1,144 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "$id": "dictionary.schema.json",
+    "title": "Dictionary",
+    "description": "A dictionary for message and properties translation",
+    "type": "object",
+    "properties": {
+        "app": {
+            "description": "Dictionary for global App properties",
+            "type": "string",
+            "title": "string"
+        },
+        "homePage": {
+            "description": "Dictionary for Homepage",
+            "type": "object",
+            "properties": {
+                "title": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "title"
+            ]
+        },
+        "auth": {
+            "description": "Dictionary for authentication",
+            "type": "object",
+            "properties": {
+                "loginTitle": {
+                    "type": "string"
+                },
+                "signupTitle": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "loginDescription": {
+                    "type": "string"
+                },
+                "signupTDescription": {
+                    "type": "string"
+                },
+            },
+            "required": [
+                "loginTitle",
+                "signupTitle",
+                "name",
+                "email",
+                "password",
+                "description",
+                "loginDescription",
+                "signupTDescription"
+            ]
+        },
+        "button": {
+            "description": "Dictionary for buttons and links",
+            "type": "object",
+            "properties": {
+                "createProperty": {
+                    "type": "string"
+                },
+                "login": {
+                    "type": "string"
+                },
+                "logout": {
+                    "type": "string"
+                },
+                "signup": {
+                    "type": "string"
+                },
+                "edit": {
+                    "type": "string"
+                },
+                "back": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "createProperty",
+                "login",
+                "logout",
+                "edit",
+                "back"
+            ]
+        },
+        "property": {
+            "description": "Dictionary for Property schema or entity",
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "builder": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "string"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "images": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name",
+                "builder",
+                "price",
+                "location",
+                "description",
+                "images",
+                "created_at",
+                "updated_at"
+            ]
+        }
+    },
+    "required": [
+        "app",
+        "homePage",
+        "auth",
+        "button",
+        "property"
+    ]
+}

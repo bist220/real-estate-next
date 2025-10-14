@@ -2,8 +2,8 @@
 
 import { useEffect, useState, FormEvent } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import Navbar from '../../../components/Navbar';
-import LanguageSwitcher from '../../../components/LanguageSwitcher';
+import Navbar from '../../../../components/Navbar';
+import LanguageSwitcher from '../../../../components/LanguageSwitcher';
 import Property, { PropertyResponse, UpdatePropertyRequest } from '@/app/types/Property';
 
 // interface Property {

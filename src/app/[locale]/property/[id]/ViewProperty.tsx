@@ -1,5 +1,4 @@
-'use client';
-
+"use client"
 import { useContext, useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 // import Navbar from '../../components/Navbar';
@@ -8,6 +7,7 @@ import Property, { PropertyResponse } from '@/app/types/Property';
 import { AuthContext } from '@/app/auth-provider';
 import { isNullOrEmptyObject } from '@/app/lib/utils';
 import Link from 'next/link';
+import { Button, Dictionary, PropertyDict } from '@/app/types/DictionaryType';
 // import { ImageCarousel } from '@/app/components/ImageCarousel';
 
 // interface Property {
@@ -22,7 +22,9 @@ import Link from 'next/link';
 //   created_at: string;
 // }
 
-export default function PropertyDetailPage() {
+
+export default function ViewProperty({labels}: {labels: Dictionary }) {
+    
   const { id } = useParams<{ id: string }>();
   const router = useRouter();
 
@@ -138,7 +140,7 @@ export default function PropertyDetailPage() {
           {property.images ? (
             // <ImageCarousel className="w-full h-80 object-cover rounded-xl mb-6" urls={imgageUrlArr} ></ImageCarousel>
             <img
-              src={property.images}
+              src={imgageUrlArr[0]}
               alt={property.name}
               className="w-full h-80 object-cover rounded-xl mb-6"
             />
@@ -161,10 +163,10 @@ export default function PropertyDetailPage() {
 
           <h1 className="text-3xl font-semibold mb-2">{property.name}</h1>
           <p className="text-gray-600 mb-2">
-            <strong>Builder:</strong> {property.builder}
+            <strong>{labels.property.builder}:</strong> {property.builder}
           </p>
           <p className="text-gray-600 mb-2">
-            <strong>Location:</strong> {property.location}
+            <strong>{labels.property.location}:</strong> {property.location}
           </p>
           <p className="text-gray-800 text-xl font-semibold mb-4">
             ₹{property.price?.toLocaleString()}
@@ -196,7 +198,7 @@ export default function PropertyDetailPage() {
                 onClick={() => router.push(`/property/edit/${property.id}`)}
                 className="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600"
               >
-                Edit Property
+                {labels.button.edit}
               </button>
             )}
 
@@ -204,7 +206,8 @@ export default function PropertyDetailPage() {
               href="/"
               className="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
             >
-              Back to Listings
+            {labels.button.back}
+              {/* Back to Listings */}
             </Link>
           </div>
 
@@ -219,4 +222,5 @@ export default function PropertyDetailPage() {
       </main>
     </div>
   );
+
 }

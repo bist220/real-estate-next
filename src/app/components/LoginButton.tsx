@@ -5,7 +5,7 @@ import { AuthContext } from "../auth-provider";
 import { useContext } from "react";
 import { isNullOrEmptyObject } from "../lib/utils";
 
-export default function LoginButton() {
+export default function LoginButton({name}: {name: string}) {
     const { user, isAuthenticated } = useContext(AuthContext);
     console.log("===>>> LoginButton")
     console.log(`===>>> user :: ${JSON.stringify(user)}`);
@@ -18,7 +18,7 @@ export default function LoginButton() {
     if (isNullOrEmptyObject(user) || !isAuthenticated) {
         return (
             <Button variant="outline" asChild>
-                <Link href="/login">Login</Link>
+                <Link href="/login">{name}</Link>
             </Button>
         )
     }
