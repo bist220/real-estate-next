@@ -23,14 +23,17 @@ const locales = [
   {
     value: "en-US",
     label: "English",
+    short: "en"
   },
   {
     value: "hi-IN",
     label: "Hindi",
+    short: "hi"
   },
   {
     value: "mr-IN",
     label: "Marathi",
+    short: "mr"
   },
 ]
 
@@ -53,7 +56,7 @@ export function LanguageCombobox({onChange, currentLocale} : {onChange: (newLoca
           className="min-w-fit justify-between"
         >
           {value
-            ? locales.find((locale) => locale.value === value)?.label
+            ? locales.find((locale) => locale.value === value)?.short
             : "Select locale..."}<Languages/>
           {/* <ChevronsUpDown className="opacity-50" /> */}
         </Button>
@@ -61,7 +64,7 @@ export function LanguageCombobox({onChange, currentLocale} : {onChange: (newLoca
       {/* <PopoverContent className="w-[200px] p-0 bg-white"> */}
       <PopoverContent className="max-w-fit p-0 bg-white">
         <Command>
-          <CommandInput placeholder="Search locale..." className="h-9" />
+          {/* <CommandInput placeholder="Search locale..." className="h-9" /> */}
           <CommandList>
             <CommandEmpty>No locale found.</CommandEmpty>
             <CommandGroup>

@@ -26,13 +26,13 @@ export default function LogoutButton({name}: {name: string}) {
 
     if (!isNullOrEmptyObject(user) || isAuthenticated) {
         return (
-            <Button variant="outline" asChild>
-                {/* <form action={logoutContext}> */}
-                {/* <form>
-                    <button type="submit" onClick={() => { logoutContext() }}>Logout</button>
-                </form> */}
+            // <Button variant="default" asChild>
+                // {/* <form action={logoutContext}> */}
+                // {/* <form>
+                //     <button type="submit" onClick={() => { logoutContext() }}>Logout</button>
+                // </form> */}
                 <a onClick={() => { logoutContext() }}>{name}</a>
-            </Button>
+            // </Button>
         )
     }
     return <></>;

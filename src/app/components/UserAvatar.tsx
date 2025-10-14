@@ -12,7 +12,7 @@ export default function UserAvatar() {
             <div>
                 <Avatar>
                     {/* <AvatarImage src="https://github.com/shadcn.png" /> */}
-                    {/* <AvatarImage src="https://github.com/shadcn.png" alt={user.name} /> */}
+                    <AvatarImage src="https://github.com/shadcn.png" alt={user.name} />
                     <AvatarFallback>UN</AvatarFallback>
                 </Avatar>
             </div>

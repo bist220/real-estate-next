@@ -7,10 +7,11 @@ import LoginButton from './LoginButton';
 import UserAvatar from './UserAvatar';
 import { getDictionary } from '../lib/dictionaries';
 import LanguageSelector from './LanguageSelector';
+import { UserProfileDropdownMenu } from './DropDown';
 // import { useContext } from 'react';
 // import { AuthContext } from '../auth-provider';
 
-export default async function Navbar({locale} : {locale: string}) {
+export default async function Navbar({ locale }: { locale: string }) {
   console.log(`===>>> Navbar:: `)
   const dict = await getDictionary(locale);
   // const {user, setUser, isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
@@ -22,14 +23,18 @@ export default async function Navbar({locale} : {locale: string}) {
           {dict.app}
         </Link>
         <div className="flex items-center gap-3">
-          <Button variant="outline" asChild>
+          {/* <Button variant="outline" asChild>
             <Link href="/property/new">{dict.button.createProperty}</Link>
-          </Button>
-          <LoginButton name={dict.button.login}/>
+          </Button> */}
+          <LoginButton name={dict.button.login} />
           {/* {(user || isAuthenticated) ? <LogoutButton /> : <></>}
           {(user) ? user.name : <></>} */}
-          <LogoutButton name={dict.button.logout}/>
-          <UserAvatar />
+          {/* <LogoutButton name={dict.button.logout}/> */}
+          {/* <UserAvatar /> */}
+          <UserProfileDropdownMenu
+            logoutLabel={dict.button.logout}
+            createLabel={dict.button.createProperty}>
+          </UserProfileDropdownMenu>
           <LanguageSelector />
           {/* TODO Delete Later */}
           {/* <LoginToggleButton /> */}
