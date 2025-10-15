@@ -7,7 +7,8 @@ import Property, { PropertyResponse } from '@/app/types/Property';
 import { AuthContext } from '@/app/auth-provider';
 import { isNullOrEmptyObject } from '@/app/lib/utils';
 import Link from 'next/link';
-import { Button, Dictionary, PropertyDict } from '@/app/types/DictionaryType';
+import { Dictionary } from '@/app/types/DictionaryType';
+import { Button } from '@/components/ui/button';
 // import { ImageCarousel } from '@/app/components/ImageCarousel';
 
 // interface Property {
@@ -23,8 +24,8 @@ import { Button, Dictionary, PropertyDict } from '@/app/types/DictionaryType';
 // }
 
 
-export default function ViewProperty({labels}: {labels: Dictionary }) {
-    
+export default function ViewProperty({ labels }: { labels: Dictionary }) {
+
   const { id } = useParams<{ id: string }>();
   const router = useRouter();
 
@@ -105,6 +106,34 @@ export default function ViewProperty({labels}: {labels: Dictionary }) {
     // }
   }
 
+    async function handleDelete() {
+    try {
+      const userConfirmed = confirm("Are you sure you want to Delete this property?");
+      if (!userConfirmed) return;
+      const res = await fetch(`/api/properties/${id}/delete`, {
+        method: 'DELETE',
+      });
+      if (!res.ok) throw new Error('Failed to delete property');
+      alert('Property deleted successfully');
+      router.replace("/");
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        console.error(err.message);
+        alert(err.message);
+      } else if (typeof err === 'string') {
+        console.error(`Something went wrong: ${err}`);
+        alert(err);
+      } else {
+        console.error("An unknown error occurred.");
+        // alert(JSON.stringify(err));
+      }
+    }
+
+    // catch (err: any) {
+    //   alert(err.message);
+    // }
+  }
+
   if (loading)
     return (
       <div className="flex items-center justify-center min-h-screen">
@@ -135,7 +164,7 @@ export default function ViewProperty({labels}: {labels: Dictionary }) {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* <Navbar /> */}
-      <main className="max-w-5xl mx-auto px-4 py-10">
+      <div className="max-w-5xl mx-auto px-4 py-10">
         <div className="bg-white rounded-xl shadow p-6">
           {property.images ? (
             // <ImageCarousel className="w-full h-80 object-cover rounded-xl mb-6" urls={imgageUrlArr} ></ImageCarousel>
@@ -180,46 +209,62 @@ export default function ViewProperty({labels}: {labels: Dictionary }) {
           </p> */}
 
           <div className="flex flex-wrap gap-4">
-            {!isOwner && (
+            {/* {!isOwner && (
               <button
                 onClick={handleInterest}
                 disabled={interestSent}
                 className={`px-4 py-2 rounded text-white ${interestSent
-                    ? 'bg-green-600 cursor-not-allowed'
-                    : 'bg-blue-600 hover:bg-blue-700'
+                  ? 'bg-green-600 cursor-not-allowed'
+                  : 'bg-blue-600 hover:bg-blue-700'
                   }`}
               >
                 {interestSent ? 'Interest Sent' : 'Show Interest'}
               </button>
+            )} */}
+
+            {isOwner && (
+              <Button
+                onClick={() => router.push(`/property/edit/${property.id}`)}
+                variant={'outline'}
+                // className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                className="px-4 py-2 bg-white text-black border-2 border-blue-500  hover:bg-blue-500 "
+              >
+                {labels.button.edit}
+              </Button>
             )}
 
             {isOwner && (
-              <button
-                onClick={() => router.push(`/property/edit/${property.id}`)}
-                className="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600"
-              >
-                {labels.button.edit}
-              </button>
-            )}
+              <Button
+                onClick={handleDelete}
+                variant={'outline'}
+                // className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+                className="px-4 py-2 bg-white text-black border-2 border-red-500  hover:bg-red-500 "
 
-            <Link
-              href="/"
-              className="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
-            >
-            {labels.button.back}
-              {/* Back to Listings */}
-            </Link>
+              >
+                {labels.button.delete}
+              </Button>
+            )}
+            
+            
+            <Button
+                onClick={() => router.back()} variant={'outline'}
+                // className="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600"
+                // className="px-4 py-2 bg-white hover:bg-gray-200"
+                className="px-4 py-2 bg-white text-black border-2 border-gray-500  hover:bg-gray-200 "
+              >
+                {labels.button.back}
+              </Button>
           </div>
 
           <p className="text-xs text-gray-400 mt-6">
-            Listed on: {new Date(property.created_at).toLocaleDateString()}
+            {labels.property.created_at}: {new Date(property.created_at).toLocaleDateString()}
           </p>
         </div>
 
         {/* <div className="mt-8 flex justify-center">
           <LanguageSwitcher />
         </div> */}
-      </main>
+      </div>
     </div>
   );
 

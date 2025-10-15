@@ -11,7 +11,8 @@
         "loginDescription": "Enter your email below to login to your account",
         "signupTitle": "Create an account",
         "signupTDescription": "Enter your information below to create your account",
-        "password": "Password"
+        "password": "Password",
+        "description": ""
     },
     "button": {
         "createProperty": "Add Property",
@@ -19,7 +20,12 @@
         "logout": "Logout",
         "signup": "Create Account",
         "back": "Back",
-        "edit": "Edit"
+        "edit": "Edit",
+        "cancel": "Cancel",
+        "close": "Close",
+        "create": "Create",
+        "delete": "Delete",
+        "save": "Save"
     },
     "property": {
         "name": "Name",
@@ -29,6 +35,8 @@
         "price": "Price",
         "images": "Images",
         "created_at": "Listed on",
-        "updated_at": "Last updated"
+        "updated_at": "Last updated",
+        "createPropertyPageTitle": "List a new property",
+        "updatePropertyPageTitle": "Update Property"
     }
 }

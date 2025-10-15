@@ -49,7 +49,7 @@
                 },
                 "signupTDescription": {
                     "type": "string"
-                },
+                }
             },
             "required": [
                 "loginTitle",
@@ -78,10 +78,25 @@
                 "signup": {
                     "type": "string"
                 },
+                "create": {
+                    "type": "string"
+                },                
+                "save": {
+                    "type": "string"
+                },                
                 "edit": {
                     "type": "string"
                 },
+                "delete": {
+                    "type": "string"
+                },
                 "back": {
+                    "type": "string"
+                },
+                "cancel": {
+                    "type": "string"
+                },
+                "close": {
                     "type": "string"
                 }
             },
@@ -89,14 +104,26 @@
                 "createProperty",
                 "login",
                 "logout",
-                "edit",
-                "back"
+                "signup",
+                "create",                
+                "save",
+                "edit",              
+                "delete",
+                "back",
+                "cancel",
+                "close"
             ]
         },
         "property": {
             "description": "Dictionary for Property schema or entity",
             "type": "object",
             "properties": {
+                "createPropertyPageTitle": {
+                    "type": "string"
+                },
+                "updatePropertyPageTitle": {
+                    "type": "string"
+                },
                 "name": {
                     "type": "string"
                 },
@@ -123,6 +150,8 @@
                 }
             },
             "required": [
+                "createPropertyPageTitle",
+                "updatePropertyPageTitle",
                 "name",
                 "builder",
                 "price",

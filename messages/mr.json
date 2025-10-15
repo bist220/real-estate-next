@@ -2,33 +2,41 @@
     "$schema": "./dictionary.json",
     "app": "RealEstate",
     "homePage": {
-        "title": "संपत्त्या"
+        "title": "प्रॉपर्टीज़"
     },
     "auth": {
         "email": "ईमेल",
         "name": "नाव",
         "loginTitle": "तुमच्या खात्यात लॉगिन करा",
-        "loginDescription": "तुमच्या खात्यात लॉगिन करण्यासाठी खाली तुमचा ईमेल प्रविष्ट करा",
-        "signupTitle": "खाते तयार करा",
-        "signupTDescription": "तुमचे खाते तयार करण्यासाठी खाली माहिती प्रविष्ट करा",
-        "password": "पासवर्ड"
+        "loginDescription": "लॉगिन करण्यासाठी तुमचा ईमेल खाली द्या",
+        "signupTitle": "खाता तयार करा",
+        "signupTDescription": "खाता तयार करण्यासाठी तुमची माहिती खाली द्या",
+        "password": "पासवर्ड",
+        "description": ""
     },
     "button": {
-        "createProperty": "संपत्ती जोडा",
-        "login": "लॉग इन करा",
-        "logout": "लॉग आउट",
-        "signup": "खाते तयार करा",
-        "back": "मागे",
-        "edit": "बदल करा"
+        "createProperty": "प्रॉपर्टी जोडा",
+        "login": "लॉगिन करा",
+        "logout": "लॉगआउट",
+        "signup": "खाता तयार करा",
+        "back": "परत",
+        "edit": "संपादित करा",
+        "cancel": "रद्द करा",
+        "close": "बंद करा",
+        "create": "तयार करा",
+        "delete": "हटवा",
+        "save": "सहेजून ठेवा"
     },
     "property": {
         "name": "नाव",
         "builder": "बिल्डर",
         "description": "वर्णन",
-        "location": "ठिकाण",
-        "price": "किमत",
+        "location": "स्थान",
+        "price": "किंमत",
         "images": "प्रतिमा",
-        "created_at": "यादीवर आहे",
-        "updated_at": "शेवटचे अद्यतन"
+        "created_at": "लिस्ट केले गेले",
+        "updated_at": "शेवटचा अद्यतन",
+        "createPropertyPageTitle": "नवीन प्रॉपर्टी लिस्ट करा",
+        "updatePropertyPageTitle": "प्रॉपर्टी अपडेट करा"
     }
 }

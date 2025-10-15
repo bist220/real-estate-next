@@ -2,33 +2,41 @@
     "$schema": "./dictionary.json",
     "app": "RealEstate",
     "homePage": {
-        "title": "संपत्तियाँ"
+        "title": "प्रॉपर्टीज़"
     },
     "auth": {
         "email": "ईमेल",
         "name": "नाम",
         "loginTitle": "अपने खाते में लॉगिन करें",
-        "loginDescription": "अपने खाते में लॉगिन करने के लिए नीचे अपना ईमेल दर्ज करें",
+        "loginDescription": "लॉगिन करने के लिए नीचे अपना ईमेल दर्ज करें",
         "signupTitle": "खाता बनाएं",
-        "signupTDescription": "अपना खाता बनाने के लिए नीचे अपनी जानकारी दर्ज करें",
-        "password": "पासवर्ड"
+        "signupTDescription": "खाता बनाने के लिए नीचे अपनी जानकारी भरें",
+        "password": "पासवर्ड",
+        "description": ""
     },
     "button": {
-        "createProperty": "संपत्ति जोड़ें",
-        "login": "लॉग इन करें",
-        "logout": "लॉग आउट",
+        "createProperty": "प्रॉपर्टी जोड़ें",
+        "login": "लॉगिन करें",
+        "logout": "लॉगआउट",
         "signup": "खाता बनाएं",
-        "back": "पीछे",
-        "edit": "संशोधित करें"
+        "back": "वापस",
+        "edit": "संपादित करें",
+        "cancel": "रद्द करें",
+        "close": "बंद करें",
+        "create": "बनाएं",
+        "delete": "हटाएं",
+        "save": "सहेजें"
     },
     "property": {
         "name": "नाम",
-        "builder": "निर्माता",
+        "builder": "बिल्डर",
         "description": "विवरण",
         "location": "स्थान",
         "price": "मूल्य",
-        "images": "तस्वीरें",
+        "images": "छवियाँ",
         "created_at": "सूचीबद्ध किया गया",
-        "updated_at": "आखिरी अपडेट"
+        "updated_at": "अंतिम अद्यतन",
+        "createPropertyPageTitle": "नयी प्रॉपर्टी सूचीबद्ध करें",
+        "updatePropertyPageTitle": "प्रॉपर्टी अपडेट करें"
     }
 }
