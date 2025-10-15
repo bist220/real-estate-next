@@ -16,7 +16,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { Dictionary } from "../types/DictionaryType";
 
 
-export function CreateUpdatePropertyForm(onSubmit: (e: React.FormEvent) => Promise<void>, form: CreatePropertyRequest, setForm: React.Dispatch<React.SetStateAction<CreatePropertyRequest>>, loading: boolean, dict: Dictionary) {
+export function CreateUpdatePropertyForm({onSubmit, form, setForm, loading, dict} : {onSubmit: (e: React.FormEvent) => Promise<void>, form: CreatePropertyRequest, setForm: React.Dispatch<React.SetStateAction<CreatePropertyRequest>>, loading: boolean, dict: Dictionary}) {
     const router = useRouter();
     const pathname = usePathname();
     const isEdit = pathname.includes("/edit/");

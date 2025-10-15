@@ -94,6 +94,6 @@ export default function EditProperty({ dict }: { dict: Dictionary }) {
     );
 
   return (
-    CreateUpdatePropertyForm(handleSubmit, form, setForm, updating, dict)
+    <CreateUpdatePropertyForm onSubmit={handleSubmit} form={form} setForm={setForm} loading={updating} dict={dict} />
   )
 }

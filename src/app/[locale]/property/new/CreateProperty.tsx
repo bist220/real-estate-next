@@ -62,7 +62,7 @@ export default function CreateProperty({dict}: {dict: Dictionary}) {
             console.error(JSON.stringify(j))
             throw new Error('Failed to create');
           }
-          router.push('/');
+          router.replace('/');
         } catch (err: unknown) {
           if (err instanceof Error) {
             console.error(err.message);
@@ -80,6 +80,6 @@ export default function CreateProperty({dict}: {dict: Dictionary}) {
       };
 
       return (
-        CreateUpdatePropertyForm(onSubmit, form, setForm, updating, dict)
+        <CreateUpdatePropertyForm onSubmit={onSubmit} form={form} setForm={setForm} loading={updating} dict={dict} />
       )
 }
